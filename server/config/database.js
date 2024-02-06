@@ -10,7 +10,7 @@ exports.connect = () => {
     .then(()=> console.log("DB connected successfull"))
     .catch((err)=>{
         console.log("DB connection issues")
-        // console.error(err)
+        console.error(err)
         process.exit(1)
     })
 }
