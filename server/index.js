@@ -23,7 +23,9 @@ app.use("/users", userRoutes);
 const db = require("./config/database");
 db.connect();
 
-
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 // calling
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
