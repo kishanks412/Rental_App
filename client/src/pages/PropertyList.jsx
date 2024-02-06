@@ -23,18 +23,18 @@ const PropertyList = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       dispatch(setPropertyList(data));
       setLoading(false);
     } catch (err) {
-      console.log("Fetch all properties failed", err.message);
+      // console.log("Fetch all properties failed", err.message);
     }
   };
 
   useEffect(() => {
     getPropertyList();
   }, []);
-  console.log(propertyList)
+  // console.log(propertyList)
 
   return loading ? (
     <Loader />

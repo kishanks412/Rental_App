@@ -28,7 +28,7 @@ const CategoryPage = () => {
       dispatch(setListings({ listings: data }));
       setLoading(false);
     } catch (err) {
-      console.log("Fetch Listings Failed", err.message);
+      // console.log("Fetch Listings Failed", err.message);
     }
   };
 

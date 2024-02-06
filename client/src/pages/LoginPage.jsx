@@ -39,7 +39,7 @@ const LoginPage = () => {
   
 
 
-      console.log(loggedIn.message)
+      // console.log(loggedIn.message)
 
       if (loggedIn) {
         dispatch (
@@ -52,7 +52,7 @@ const LoginPage = () => {
       }
 
     } catch (err) {
-      console.log("Login failed", err.message)
+      // console.log("Login failed", err.message)
     }
   }
 

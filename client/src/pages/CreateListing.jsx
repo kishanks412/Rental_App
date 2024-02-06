@@ -137,7 +137,7 @@ const CreateListing = () => {
         navigate("/");
       }
     } catch (err) {
-      console.log("Publish Listing failed", err.message);
+      // console.log("Publish Listing failed", err.message);
     }
   };
   return (

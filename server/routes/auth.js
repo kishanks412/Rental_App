@@ -60,7 +60,7 @@ router.post("/register", upload.single("profileImage"), async (req, res) => {
       .status(200)
       .json({ message: "User registered successfully!", user: newUser });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res
       .status(500)
       .json({ message: "Registration failed!", error: err.message });
@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
     /* Check if user exists */
     const user = await User.findOne({ email });
     if (!user) {
-      console.log("user no")
+     
       return res.status(409).json({ message: "Please enter the correct email" });
     }
 
@@ -93,7 +93,7 @@ router.post("/login", async (req, res) => {
     res.status(200).json({ token, user })
 
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     res.status(500).json({ error: err.message })
   }
 })

@@ -30,7 +30,7 @@ const ListingDetails = () => {
       setListing(data);
       setLoading(false);
     } catch (err) {
-      console.log("Fetch Listing Details Failed", err.message);
+      // console.log("Fetch Listing Details Failed", err.message);
     }
   };
 
@@ -38,7 +38,7 @@ const ListingDetails = () => {
     getListingDetails();
   }, []);
 
-  console.log(listing);
+  // console.log(listing);
 
   /* BOOKING CALENDAR */
   const [dateRange, setDateRange] = useState([
@@ -96,7 +96,7 @@ const ListingDetails = () => {
         navigate(`/${customerId}/trips`);
       }
     } catch (err) {
-      console.log("Submit Booking Failed.", err.message);
+      // console.log("Submit Booking Failed.", err.message);
     }
   };
 

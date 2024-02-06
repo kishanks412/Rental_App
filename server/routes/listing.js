@@ -83,7 +83,7 @@ router.post("/create", upload.array("listingPhotos"), async (req, res) => {
     res.status(200).json(newListing)
   } catch (err) {
     res.status(409).json({ message: "Fail to create Listing", error: err.message })
-    console.log(err)
+    // console.log(err)
   }
 });
 
@@ -102,7 +102,7 @@ router.get("/", async (req, res) => {
     res.status(200).json(listings)
   } catch (err) {
     res.status(404).json({ message: "Fail to fetch listings", error: err.message })
-    console.log(err)
+    // console.log(err)
   }
 })
 
@@ -127,7 +127,7 @@ router.get("/search/:search", async (req, res) => {
     res.status(200).json(listings)
   } catch (err) {
     res.status(404).json({ message: "Fail to fetch listings", error: err.message })
-    console.log(err)
+    // console.log(err)
   }
 })
 

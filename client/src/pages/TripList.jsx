@@ -27,7 +27,7 @@ const TripList = () => {
       dispatch(setTripList(data));
       setLoading(false);
     } catch (err) {
-      console.log("Fetch Trip List failed!", err.message);
+      // console.log("Fetch Trip List failed!", err.message);
     }
   };
 

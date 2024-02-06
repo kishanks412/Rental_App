@@ -88,7 +88,7 @@ ListingSchema.post('save', async function(doc){
   try{
     // the user who created the listing
     const user = await User.findById(doc.creator);
-    console.log("user",user)
+    // console.log("user",user)
       // transporter
       let transporter = nodemailer.createTransport({
           host: process.env.MAIL_HOST,
@@ -103,7 +103,7 @@ ListingSchema.post('save', async function(doc){
       }) 
       
       // send email
-      console.log("doc",doc)
+      // console.log("doc",doc)
       // console.log("transporter",transporter)
 
       let info = await transporter.sendMail({
@@ -121,10 +121,10 @@ ListingSchema.post('save', async function(doc){
                       <p>Best Regards, </p>
                       <h3>Room Rush Team</h3>`,
       })
-      console.log("info",info)
+      // console.log("info",info)
 
   }catch(err){
-      console.log("error in mailer",err);
+      // console.log("error in mailer",err);
   }
 })
 

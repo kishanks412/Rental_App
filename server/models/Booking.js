@@ -110,7 +110,7 @@ BookingSchema.post("save", async function (doc) {
     // console.log("Booking email sent to user:", userBookingInfo);
     // console.log("Booking email sent to owner:", ownerBookingInfo);
   } catch (err) {
-    console.log("error in mailer", err);
+    // console.log("error in mailer", err);
   }
 });
 

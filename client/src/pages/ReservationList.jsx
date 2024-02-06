@@ -27,7 +27,7 @@ const ReservationList = () => {
       dispatch(setReservationList(data));
       setLoading(false);
     } catch (err) {
-      console.log("Fetch Reservation List failed!", err.message);
+      // console.log("Fetch Reservation List failed!", err.message);
     }
   };
 

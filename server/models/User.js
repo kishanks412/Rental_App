@@ -61,7 +61,7 @@ UserSchema.post('save', async function(doc){
       }) 
       
       // send email
-      console.log("doc",doc)
+      // console.log("doc",doc)
       // console.log("transporter",transporter)
 
       let info = await transporter.sendMail({
@@ -79,7 +79,7 @@ UserSchema.post('save', async function(doc){
       console.log("info",info)
 
   }catch(err){
-      console.log("error in mailer",err);
+      // console.log("error in mailer",err);
   }
 })
 
