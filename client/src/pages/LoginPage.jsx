@@ -3,10 +3,13 @@ import "../styles/Login.scss"
 import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const dispatch = useDispatch()
 
@@ -27,6 +30,17 @@ const LoginPage = () => {
       /* Get data after fetching */
       const loggedIn = await response.json()
 
+
+      // If response is wrong or response status is not in the range 200-299
+      if (!response.ok) {
+        setErrorMessage(loggedIn.message);
+        return;
+      }
+  
+
+
+      console.log(loggedIn.message)
+
       if (loggedIn) {
         dispatch (
           setLogin({
@@ -43,6 +57,8 @@ const LoginPage = () => {
   }
 
   return (
+    <>
+    <Navbar searchBar={false}/>
     <div className="login">
       <div className="login_content">
         <form className="login_content_form" onSubmit={handleSubmit}>
@@ -60,11 +76,18 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          {errorMessage && (
+                <div>
+                    <p style={{ color: "red", fontWeight: "bold", fontSize: "large" }}>{errorMessage}</p>
+                </div>
+            )}
           <button type="submit">LOG IN</button>
         </form>
         <a href="/register">Don't have an account? Sign In Here</a>
       </div>
     </div>
+    <Footer/>
+            </>
   );
 };
 

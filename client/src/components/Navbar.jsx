@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setLogout } from "../redux/state";
 
 
-const Navbar = () => {
+const Navbar = ({searchBar="true"}) => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
 
   const user = useSelector((state) => state.user);
@@ -22,10 +22,10 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <a href="/">
-        <img src="/assets/logo.png" alt="logo" />
+        <img src="/assets/logo.jpg" alt="logo" />
       </a>
 
-      <div className="navbar_search">
+      {searchBar && <div className="navbar_search">
         <input
           type="text"
           placeholder="Search ..."
@@ -39,7 +39,7 @@ const Navbar = () => {
           />
         </IconButton>
       </div>
-
+      }
       <div className="navbar_right">
         {user ? (
           <a href="/create-listing" className="host">
@@ -79,6 +79,7 @@ const Navbar = () => {
 
         {dropdownMenu && user && (
           <div className="navbar_right_accountmenu">
+            <Link to={`/`}>Home</Link>
             <Link to={`/${user._id}/trips`}>Trip List</Link>
             <Link to={`/${user._id}/wishList`}>Wish List</Link>
             <Link to={`/${user._id}/properties`}>Property List</Link>
