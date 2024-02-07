@@ -128,7 +128,7 @@ const CreateListing = () => {
       });
 
       const key = process.env.REACT_APP_BACKEND_URL;
-      console.log(key)
+      // console.log(key)
       /* Send a POST request to server */
       const response = await fetch(`${key}/properties/create`, {
         method: "POST",
