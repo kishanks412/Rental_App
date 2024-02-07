@@ -12,13 +12,13 @@ const PropertyList = () => {
   const user = useSelector((state) => state.user);
   const propertyList = user?.propertyList;
  
-  const key = process.env.REACT_APP_BACKEND_URL;
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
   const dispatch = useDispatch();
   const getPropertyList = async () => {
     try {
       const response = await fetch(
-        `${key}/users/${user._id}/properties`,
+        `${backend_url}/users/${user._id}/properties`,
         {
           method: "GET",
         }

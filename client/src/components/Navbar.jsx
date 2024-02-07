@@ -16,7 +16,7 @@ const Navbar = ({searchBar="true"}) => {
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState("")
-  const key = process.env.REACT_APP_BACKEND_URL;
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
   const navigate = useNavigate()
 
@@ -61,7 +61,7 @@ const Navbar = ({searchBar="true"}) => {
             <Person sx={{ color: variables.darkgrey }} />
           ) : (
             <img
-              src={`${key}/${user.profileImagePath.replace(
+              src={`${backend_url}/${user.profileImagePath.replace(
                 "public",
                 ""
               )}`}

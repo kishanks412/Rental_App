@@ -36,7 +36,7 @@ const RegisterPage = () => {
   });
 
   const navigate = useNavigate();
-  const key = process.env.REACT_APP_BACKEND_URL;
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ const RegisterPage = () => {
         register_form.append(key, formData[key]);
       }
 
-      const response = await fetch(`${key}/auth/register`, {
+      const response = await fetch(`${backend_url}/auth/register`, {
         method: "POST",
         body: register_form,
       });

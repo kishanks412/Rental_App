@@ -14,11 +14,11 @@ const SearchPage = () => {
   const listings = useSelector((state) => state.listings)
 
   const dispatch = useDispatch()
-  const key = process.env.REACT_APP_BACKEND_URL;
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
   const getSearchListings = async () => {
     try {
-      const response = await fetch(`${key}/properties/search/${search}`, {
+      const response = await fetch(`${backend_url}/properties/search/${search}`, {
         method: "GET"
       })
 

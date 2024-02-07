@@ -13,12 +13,12 @@ const ReservationList = () => {
   const reservationList = useSelector((state) => state.user.reservationList);
 
   const dispatch = useDispatch();
-  const key = process.env.REACT_APP_BACKEND_URL;
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
   const getReservationList = async () => {
     try {
       const response = await fetch(
-        `${key}/users/${userId}/reservations`,
+        `${backend_url}/users/${userId}/reservations`,
         {
           method: "GET",
         }

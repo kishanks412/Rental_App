@@ -14,13 +14,13 @@ const LoginPage = () => {
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
-  const key = process.env.REACT_APP_BACKEND_URL;
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch (`${key}/auth/login`, {
+      const response = await fetch (`${backend_url}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
