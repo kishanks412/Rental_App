@@ -47,11 +47,12 @@ const ListingCard = ({
   const wishList = user?.wishList || [];
 
   const isLiked = wishList?.find((item) => item?._id === listingId);
-
+  
+  const key = process.env.REACT_APP_BACKEND_URL;
   const patchWishList = async () => {
     if (user?._id !== creator._id) {
       const response = await fetch(
-        `http://localhost:3001/users/${user?._id}/${listingId}`,
+        `${key}/users/${user?._id}/${listingId}`,
         {
           method: "PATCH",
           header: {
@@ -81,7 +82,7 @@ const ListingCard = ({
           {listingPhotoPaths?.map((photo, index) => (
             <div key={index} className="slide">
               <img
-                src={`http://localhost:3001/${photo?.replace("public", "")}`}
+                src={`${key}/${photo?.replace("public", "")}`}
                 alt={`photo ${index + 1}`}
               />
               <div

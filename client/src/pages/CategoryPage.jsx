@@ -15,10 +15,11 @@ const CategoryPage = () => {
   const dispatch = useDispatch();
   const listings = useSelector((state) => state.listings);
 
+  const key = process.env.REACT_APP_BACKEND_URL;
   const getFeedListings = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/properties?category=${category}`,
+        `${key}properties?category=${category}`,
         {
           method: "GET",
         }

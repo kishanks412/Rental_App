@@ -14,12 +14,14 @@ const Listings = () => {
 
   const listings = useSelector((state) => state.listings);
 
+  const key = process.env.REACT_APP_BACKEND_URL;
+
   const getFeedListings = async () => {
     try {
       const response = await fetch(
         selectedCategory !== "All"
-          ? `http://localhost:3001/properties?category=${selectedCategory}`
-          : "http://localhost:3001/properties",
+          ? `${key}/properties?category=${selectedCategory}`
+          : `${key}/properties`,
         {
           method: "GET",
         }

@@ -13,11 +13,12 @@ const TripList = () => {
   const tripList = useSelector((state) => state.user.tripList);
 
   const dispatch = useDispatch();
+  const key = process.env.REACT_APP_BACKEND_URL;
 
   const getTripList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/users/${userId}/trips`,
+        `${key}/users/${userId}/trips`,
         {
           method: "GET",
         }

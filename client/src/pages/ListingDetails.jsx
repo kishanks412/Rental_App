@@ -16,11 +16,12 @@ const ListingDetails = () => {
 
   const { listingId } = useParams();
   const [listing, setListing] = useState(null);
+  const key = process.env.REACT_APP_BACKEND_URL;
 
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/properties/${listingId}`,
+        `${key}/properties/${listingId}`,
         {
           method: "GET",
         }
@@ -83,8 +84,9 @@ const ListingDetails = () => {
         endDate: dateRange[0].endDate.toDateString(),
         totalPrice: listing.price * dayCount,
       };
+      const key = process.env.REACT_APP_BACKEND_URL;
 
-      const response = await fetch("http://localhost:3001/bookings/create", {
+      const response = await fetch(`${key}/bookings/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +116,7 @@ const ListingDetails = () => {
         <div className="photos">
           {listing.listingPhotoPaths?.map((item) => (
             <img
-              src={`http://localhost:3001/${item.replace("public", "")}`}
+              src={`${key}/${item.replace("public", "")}`}
               alt="listing photo"
             />
           ))}
@@ -132,7 +134,7 @@ const ListingDetails = () => {
 
         <div className="profile">
           <img
-            src={`http://localhost:3001/${listing.creator.profileImagePath.replace(
+            src={`${key}/${listing.creator.profileImagePath.replace(
               "public",
               ""
             )}`}

@@ -127,8 +127,10 @@ const CreateListing = () => {
         listingForm.append("listingPhotos", photo);
       });
 
+      const key = process.env.REACT_APP_BACKEND_URL;
+      console.log(key)
       /* Send a POST request to server */
-      const response = await fetch("http://localhost:3001/properties/create", {
+      const response = await fetch(`${key}/properties/create`, {
         method: "POST",
         body: listingForm,
       });
