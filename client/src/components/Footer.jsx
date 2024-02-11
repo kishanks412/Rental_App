@@ -20,17 +20,20 @@ const Footer = () => {
         <h3>Contact</h3>
         <div className="footer_right_info">
           <LocalPhone />
-          <p>+91 7054073183</p>
+          <a href="tel:+91 7054073183">
+            <p>+91 7054073183</p>
+          </a>
         </div>
         <div className="footer_right_info">
           <Email />
-          <p>kishankumarseth.ggu@gmail.com</p>
-             
+          <a href="mailto:kishankumarseth.ggu@gmail.com">
+            <p>kishankumarseth.ggu@gmail.com</p>
+          </a>
         </div>
         <img src="/assets/payment.png" alt="payment" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
