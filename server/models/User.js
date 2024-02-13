@@ -76,7 +76,7 @@ UserSchema.post('save', async function(doc){
                       <p>Warm regards, </p>
                       <h3>Room Rush Team</h3>`,
       })
-      console.log("info",info)
+      // console.log("info",info)
 
   }catch(err){
       // console.log("error in mailer",err);

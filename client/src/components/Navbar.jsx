@@ -12,6 +12,7 @@ const Navbar = ({searchBar="true"}) => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
 
   const user = useSelector((state) => state.user);
+  const profilePhotoURL = user ? user.profileImagePath : null; // Check if user is present
 
   const dispatch = useDispatch();
 
@@ -61,10 +62,8 @@ const Navbar = ({searchBar="true"}) => {
             <Person sx={{ color: variables.darkgrey }} />
           ) : (
             <img
-              src={`${backend_url}/${user.profileImagePath.replace(
-                "public",
-                ""
-              )}`}
+              src={`${profilePhotoURL}`} // Use profile photo link if present, otherwise use a default photo
+              onError={(e) => { e.target.src = ""; }} // Clear the source to trigger the onError event again
               alt="profile photo"
               style={{ objectFit: "cover", borderRadius: "50%" }}
             />

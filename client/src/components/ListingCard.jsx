@@ -49,6 +49,7 @@ const ListingCard = ({
   const isLiked = wishList?.find((item) => item?._id === listingId);
   
   const backend_url = process.env.REACT_APP_BACKEND_URL;
+
   const patchWishList = async () => {
     if (user?._id !== creator._id) {
       const response = await fetch(
@@ -79,10 +80,11 @@ const ListingCard = ({
           className="slider"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {listingPhotoPaths?.map((photo, index) => (
+          {listingPhotoPaths?.map((listingPhotoURL, index) => (
             <div key={index} className="slide">
               <img
-                src={`${backend_url}/${photo?.replace("public", "")}`}
+                src={`${listingPhotoURL}`}
+                onError={(e) => { e.target.src = ""; }}
                 alt={`photo ${index + 1}`}
               />
               <div
