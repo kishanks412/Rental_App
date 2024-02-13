@@ -72,7 +72,7 @@ BookingSchema.post("save", async function (doc) {
       to: bookingUser.email,
       subject: "Your Booking Confirmation on Room Rush",
       html: `<h3>Dear ${bookingUser.firstName} ${bookingUser.lastName}</h3> 
-                  <p>Congratulations! Your booking at ${bookedListing.title} has been successfully confirmed.</p> 
+                  <p>Congratulations! Your booking at <strong> ${bookedListing.title} </strong> has been successfully confirmed.</p> 
                   <p>Here are the details of your booking:</p>
                   <p>&nbsp;&nbsp; - Hotel: ${bookedListing.title}</p>
                   <p>&nbsp;&nbsp; - Address: ${bookedListing.streetAddress}, ${bookedListing.aptSuite}, ${bookedListing.city}, ${bookedListing.province}, ${bookedListing.country} </p>
@@ -83,6 +83,7 @@ BookingSchema.post("save", async function (doc) {
                   <p>&nbsp;&nbsp; - Total Price: ₹${doc.totalPrice}</p>
                   <p>Your booking is confirmed, and you're all set for a wonderful stay. If you have any questions or need assistance, please don't hesitate to contact us.</p>
                   <p></p>
+                  <hr>
                   <p>Best Regards, </p>
                   <h3>Room Rush Team</h3>`,
     });
@@ -94,6 +95,7 @@ BookingSchema.post("save", async function (doc) {
       subject: "New Booking on Room Rush",
       html: `<h3>Dear ${hostUser.firstName} ${hostUser.lastName}</h3> 
                   <p>A new booking has been made at your listing "${bookedListing.title}". Here are the details:</p>
+                  <p>&nbsp;&nbsp; - User Name: <strong> ${bookingUser.firstName} ${bookingUser.lastName} </strong></p>
                   <p>&nbsp;&nbsp; - User Email: ${bookingUser.email}</p>
                   <p>&nbsp;&nbsp; - Hotel: ${bookedListing.title}</p>
                   <p>&nbsp;&nbsp; - Address: ${bookedListing.streetAddress}, ${bookedListing.aptSuite}, ${bookedListing.city}, ${bookedListing.province}, ${bookedListing.country} </p>

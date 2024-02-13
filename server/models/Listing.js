@@ -111,10 +111,10 @@ ListingSchema.post('save', async function(doc){
           to: user.email,
           subject: "Your Listing on Room Rush",
           html: `<h2>Dear ${user.firstName + " " + user.lastName}</h2> 
-                      <p>Congratulations! Your listing for ${doc.title} in ${doc.province} has been successfully created on Room Rush. </p> 
+                      <p>Congratulations! Your listing for <strong> ${doc.title} </strong> in <strong> ${doc.province} </strong> has been successfully created on Room Rush. </p> 
                       <p>Here are the details of your listing:</p>
-                      <p>&nbsp;&nbsp; - Hotel Name: ${doc.title}</p>
-                      <p>&nbsp;&nbsp; - Province: ${doc.province} </p>
+                      <p>&nbsp;&nbsp; - Hotel Name: <strong> ${doc.title} </strong></p>
+                      <p>&nbsp;&nbsp; - Address: ${bookedListing.streetAddress}, ${bookedListing.aptSuite}, ${bookedListing.city}, ${bookedListing.province}, ${bookedListing.country} </p>
                       <p>&nbsp;&nbsp; - Price Per Night: ₹ ${doc.price} </p>
                       <p>Your listing is now live and visible to potential guests on our platform. We wish you great success in attracting bookings! </p>
                       <p>If you have any questions or need further assistance, please don't hesitate to contact us. </p>

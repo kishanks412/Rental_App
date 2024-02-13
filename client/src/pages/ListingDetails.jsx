@@ -116,8 +116,9 @@ const ListingDetails = () => {
         <div className="photos">
           {listing.listingPhotoPaths?.map((item) => (
             <img
-              src={`${backend_url}/${item.replace("public", "")}`}
+              src={`${item}`}
               alt="listing photo"
+              width= "12%"
             />
           ))}
         </div>
@@ -134,10 +135,8 @@ const ListingDetails = () => {
 
         <div className="profile">
           <img
-            src={`${backend_url}/${listing.creator.profileImagePath.replace(
-              "public",
-              ""
-            )}`}
+            src={`${listing.creator.profileImagePath}`}
+            alt="profile image"
           />
           <h3>
             Hosted by {listing.creator.firstName} {listing.creator.lastName}
