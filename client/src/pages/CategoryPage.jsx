@@ -19,7 +19,7 @@ const CategoryPage = () => {
   const getFeedListings = async () => {
     try {
       const response = await fetch(
-        `${backend_url}properties?category=${category}`,
+        `${backend_url}/properties?category=${category}`,
         {
           method: "GET",
         }

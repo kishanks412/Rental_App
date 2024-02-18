@@ -61,11 +61,22 @@ const RegisterPage = () => {
         body: register_form,
       });
 
+      /* Get data after fetching */
+      const loggedIn = await response.json()
+
       if (response.ok) {
         navigate("/login");
       }
+
+      // If response is wrong or response status is not in the range 200-299
+      if (!response.ok) {
+        setErrorMessage(loggedIn.message);
+        return;
+      }
+      // console.log(response.status);
     } catch (err) {
-      // console.log("Registration failed", err.message);
+      console.log("error",err)
+      console.log("Registration failed", err.message);
     }
   };
 
